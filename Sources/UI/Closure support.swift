@@ -24,11 +24,9 @@ extension ClosureSupport where Self: UIControl {
 
 private final class Target<T: NSObject> {
 
-	typealias Callback = (T) -> Void
+	let callback: (T) -> Void
 
-	let callback: Callback
-
-	init(callback: @escaping Callback) {
+	init(callback: @escaping (T) -> Void) {
 		self.callback = callback
 	}
 
