@@ -1,4 +1,4 @@
-enum URLScheme: String {
+public enum URLScheme: String {
 	case http
 	case https
 }

@@ -1,15 +1,15 @@
-protocol SectionProtocol {
+public protocol SectionProtocol {
 	associatedtype Element
 
 	var items: [Element] { get set }
 	var title: String? { get set }
 }
 
-class Section<Element>: SectionProtocol {
-	var items: [Element]
-	var title: String?
+public class Section<Element>: SectionProtocol {
+	public var items: [Element]
+	public var title: String?
 
-	init(items: [Element]) {
+	public init(items: [Element]) {
 		self.items = items
 	}
 }

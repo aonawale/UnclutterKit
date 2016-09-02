@@ -1,10 +1,10 @@
 import UIKit
 
-protocol ClosureSupport {}
+public protocol ClosureSupport {}
 
 extension ClosureSupport where Self: UIBarButtonItem {
 
-	func setAction(callback: @escaping (Self) -> Void) {
+	public func setAction(callback: @escaping (Self) -> Void) {
 		let _target = Target(callback: callback)
 		objc_setAssociatedObject(self, &associationKey, _target, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 		target = _target
@@ -15,7 +15,7 @@ extension ClosureSupport where Self: UIBarButtonItem {
 extension ClosureSupport where Self: UIControl {
 
 	// TODO: support adding multiple actions
-	func setAction(for controlEvents: UIControlEvents, callback: @escaping (Self) -> Void) {
+	public func setAction(for controlEvents: UIControlEvents, callback: @escaping (Self) -> Void) {
 		let target = Target(callback: callback)
 		objc_setAssociatedObject(self, &associationKey, target, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 		addTarget(target, action: #selector(Target.action), for: controlEvents)

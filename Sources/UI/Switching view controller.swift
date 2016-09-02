@@ -1,19 +1,19 @@
 import UIKit
 
-final class SwitchingViewController: ViewController {
+public final class SwitchingViewController: ViewController {
 
-	var isPresentingA: Bool = true
+	public var isPresentingA: Bool = true
 
-	init(presentA: @escaping () -> UIViewController,
-	     presentB: @escaping () -> UIViewController,
-	     animationOptions: UIViewAnimationOptions = []) {
+	public init(presentA: @escaping () -> UIViewController,
+	            presentB: @escaping () -> UIViewController,
+	            animationOptions: UIViewAnimationOptions = []) {
 		self.presentA = presentA
 		self.presentB = presentB
 		self.viewAnimationOptions = animationOptions
 		super.init(nibName: nil, bundle: nil)
 	}
 
-	required init?(coder aDecoder: NSCoder) {
+	required public init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 
@@ -24,7 +24,7 @@ final class SwitchingViewController: ViewController {
 
 extension SwitchingViewController {
 
-	func `switch`() {
+	public func `switch`() {
 		guard let currentChildViewController = childViewControllers.first else {
 			return
 		}
@@ -51,7 +51,7 @@ extension SwitchingViewController {
 // UIViewController
 extension SwitchingViewController {
 
-	override func viewDidLoad() {
+	override public func viewDidLoad() {
 		super.viewDidLoad()
 		presentA().then {
 			$0.willMove(toParentViewController: self)

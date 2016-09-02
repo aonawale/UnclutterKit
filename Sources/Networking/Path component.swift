@@ -1,12 +1,12 @@
 import Foundation
 
-protocol PathComponentProtocol {
+public protocol PathComponentProtocol {
 	var path: String { get }
 }
 
-struct PathComponent: PathComponentProtocol {
+public struct PathComponent: PathComponentProtocol {
 
-	let path: String
+	public let path: String
 
 	init(fromString string: String) {
 		path = string.trimmingCharacters(in: CharacterSet(charactersIn: slash))
@@ -15,28 +15,28 @@ struct PathComponent: PathComponentProtocol {
 
 extension PathComponent: ExpressibleByExtendedGraphemeClusterLiteral {
 
-	init(extendedGraphemeClusterLiteral value: String) {
+	public init(extendedGraphemeClusterLiteral value: String) {
 		self.init(fromString: value)
 	}
 }
 
 extension PathComponent: ExpressibleByUnicodeScalarLiteral {
 
-	init(unicodeScalarLiteral value: String) {
+	public init(unicodeScalarLiteral value: String) {
 		self.init(fromString: value)
 	}
 }
 
 extension PathComponent: ExpressibleByStringLiteral {
 
-	init(stringLiteral value: String) {
+	public init(stringLiteral value: String) {
 		self.init(fromString: value)
 	}
 }
 
 extension Sequence where Self.Iterator.Element: PathComponentProtocol {
 
-	var joined: String {
+	public var joined: String {
 		return reduce("") { $0 + slash + $1.path }
 	}
 }

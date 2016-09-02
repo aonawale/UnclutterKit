@@ -1,6 +1,6 @@
 import CoreData
 
-protocol ManagedObjectProtocol: class {
+public protocol ManagedObjectProtocol: class {
 	static var defaultFetchBatchSize: Int { get }
 	static var defaultSortDescriptors: [NSSortDescriptor] { get }
 	static var entityName: String { get }
@@ -8,7 +8,7 @@ protocol ManagedObjectProtocol: class {
 	var managedObjectContext: NSManagedObjectContext? { get }
 }
 
-extension ManagedObjectProtocol {
+public extension ManagedObjectProtocol {
 
 	static var defaultFetchBatchSize: Int {
 		return 0
@@ -40,7 +40,7 @@ extension ManagedObjectProtocol where Self: NSFetchRequestResult {
 		return NSFetchRequest(entityName: entityName)
 	}
 
-	static var sortedFetchRequest: NSFetchRequest<Self> {
+	public static var sortedFetchRequest: NSFetchRequest<Self> {
 		return fetchRequest.then {
 			$0.fetchBatchSize = defaultFetchBatchSize
 			$0.sortDescriptors = defaultSortDescriptors
@@ -65,7 +65,7 @@ extension ManagedObjectProtocol where Self: NSFetchRequestResult {
 		}
 	}
 
-	static func findOrCreate(in managedObjectContext: NSManagedObjectContext,
+	public static func findOrCreate(in managedObjectContext: NSManagedObjectContext,
 	                         matchingPredicate predicate: NSPredicate) -> Self {
 		return
 			findOrFetch(in: managedObjectContext, matchingPredicate: predicate) ??
@@ -73,7 +73,7 @@ extension ManagedObjectProtocol where Self: NSFetchRequestResult {
 	}
 }
 
-extension NSManagedObject {
+public extension NSManagedObject {
 
 	func delete(inContext context: NSManagedObjectContext? = nil) {
 		(context ?? managedObjectContext)?.performChanges {

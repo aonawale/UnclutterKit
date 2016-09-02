@@ -1,6 +1,6 @@
 import UIKit
 
-protocol SupplementaryViewProviding {
+public protocol SupplementaryViewProviding {
 	func configure(supplementaryView: UICollectionReusableView,
 	               ofKind: String,
 	               at: IndexPath,
@@ -8,11 +8,13 @@ protocol SupplementaryViewProviding {
 	func reuseIdentifierForSupplementaryView(ofKind: String, at: IndexPath) -> String!
 }
 
-struct SupplementaryViewProvider<F: UICollectionReusableView, H: UICollectionReusableView>:
+public struct SupplementaryViewProvider<F: UICollectionReusableView, H: UICollectionReusableView>:
 	SupplementaryViewProviding where
 	F: ReusableViewProtocol, H: ReusableViewProtocol, F.ViewModel == String, H.ViewModel == String {
 
-	func configure(supplementaryView: UICollectionReusableView,
+	public init() {}
+
+	public func configure(supplementaryView: UICollectionReusableView,
 	               ofKind kind: String,
 	               at _: IndexPath,
 	               withTitle title: String?) {
@@ -28,7 +30,7 @@ struct SupplementaryViewProvider<F: UICollectionReusableView, H: UICollectionReu
 		}
 	}
 
-	func reuseIdentifierForSupplementaryView(ofKind kind: String, at _: IndexPath) -> String! {
+	public func reuseIdentifierForSupplementaryView(ofKind kind: String, at _: IndexPath) -> String! {
 		switch kind {
 		case UICollectionElementKindSectionFooter:
 			return H.reuseIdentifier

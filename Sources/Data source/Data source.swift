@@ -1,6 +1,6 @@
 import Foundation
 
-protocol DataSourceProtocol: class {
+public protocol DataSourceProtocol: class {
 
 	associatedtype Item
 

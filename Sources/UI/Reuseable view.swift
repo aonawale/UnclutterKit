@@ -1,6 +1,6 @@
 import UIKit
 
-protocol ReusableViewProtocol {
+public protocol ReusableViewProtocol {
 	associatedtype ViewModel
 	var viewModel: ViewModel? { get set }
 }
@@ -12,7 +12,7 @@ extension ReusableViewProtocol where Self: UIView {
 	}
 }
 
-extension UITableView {
+public extension UITableView {
 
 	func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T
 		where T: ReusableViewProtocol {
@@ -29,7 +29,7 @@ extension UITableView {
 	}
 }
 
-extension UICollectionView {
+public extension UICollectionView {
 
 	func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T
 		where T: ReusableViewProtocol {

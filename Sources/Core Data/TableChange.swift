@@ -1,6 +1,6 @@
 import CoreData
 
-enum TableChange {
+public enum TableChange {
 
 	// row
 	case delete(at: IndexPath)
@@ -59,7 +59,7 @@ extension TableChange {
 
 extension TableChange: Equatable {}
 
-func == (left: TableChange, right: TableChange) -> Bool {
+public func == (left: TableChange, right: TableChange) -> Bool {
 	switch (left, right) {
 	case (.insertSection(let leftSection), .insertSection(let rightSection))
 		where leftSection == rightSection:
@@ -87,7 +87,7 @@ func == (left: TableChange, right: TableChange) -> Bool {
 
 extension TableChange: Comparable {}
 
-func < (left: TableChange, right: TableChange) -> Bool {
+public func < (left: TableChange, right: TableChange) -> Bool {
 	switch (left, right) {
 
 	// Delete Section

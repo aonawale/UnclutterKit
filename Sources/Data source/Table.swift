@@ -1,8 +1,8 @@
 import UIKit
 
-struct TableItem {
+public struct TableItem {
 
-	init<Cell: UITableViewCell, ViewModel>
+	public init<Cell: UITableViewCell, ViewModel>
 		(_: Cell.Type,
 		 viewModel: ViewModel,
 		 onDelete: ((ViewModel, IndexPath) -> Void)? = nil,
@@ -29,15 +29,15 @@ struct TableItem {
 	fileprivate let isDeletable: Bool
 }
 
-struct Table {
+public struct Table {
 
-	init<T: DataSourceProtocol>(dataSource: T) where T.Item == TableItem {
+	public init<T: DataSourceProtocol>(dataSource: T) where T.Item == TableItem {
 		helper = TableViewHelper(AnyDataSource(dataSource))
 	}
 
 	private let helper: TableViewHelper
 
-	func configure(with tableView: UITableView) {
+	public func configure(with tableView: UITableView) {
 		tableView.dataSource = helper
 		tableView.delegate = helper
 	}

@@ -1,8 +1,8 @@
 import UIKit
 
-struct CollectionTableItem {
+public struct CollectionTableItem {
 
-	init<Cell: UICollectionViewCell, ViewModel>
+	public init<Cell: UICollectionViewCell, ViewModel>
 		(_: Cell.Type,
 		 viewModel: ViewModel,
 		 onDidSelect: ((ViewModel, IndexPath) -> Void)? = nil)
@@ -21,9 +21,9 @@ struct CollectionTableItem {
 	fileprivate let didSelectItem: (IndexPath) -> Void
 }
 
-struct CollectionTable {
+public struct CollectionTable {
 
-	init<D: DataSourceProtocol>(
+	public init<D: DataSourceProtocol>(
 		dataSource: D,
 		supplementaryViewProvider: SupplementaryViewProviding? = nil)
 		where D.Item == CollectionTableItem {
@@ -33,7 +33,7 @@ struct CollectionTable {
 
 	private let helper: CollectionViewHelper
 
-	func configure(with collectionView: UICollectionView) {
+	public func configure(with collectionView: UICollectionView) {
 		collectionView.dataSource = helper
 		collectionView.delegate = helper
 	}

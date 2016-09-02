@@ -1,13 +1,13 @@
 import CoreData
 
-enum ChangeType {
+public enum ChangeType {
 	case delete
 	case update
 }
 
-class ManagedObjectObserver {
+public class ManagedObjectObserver {
 
-	init?<O: ManagedObjectProtocol>(object: O, changeHandler: @escaping (ChangeType) -> Void)
+	public init?<O: ManagedObjectProtocol>(object: O, changeHandler: @escaping (ChangeType) -> Void)
 		where O: Hashable {
 			guard let managedObjectContext = object.managedObjectContext else {
 				return nil

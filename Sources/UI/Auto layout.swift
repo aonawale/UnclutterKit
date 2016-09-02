@@ -1,6 +1,6 @@
 import UIKit
 
-extension UIView {
+public extension UIView {
 
 	func constrain(to view: UIView, insets: UIEdgeInsets = .zero) {
 		[bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: insets.bottom),

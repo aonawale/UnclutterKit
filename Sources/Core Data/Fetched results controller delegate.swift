@@ -1,19 +1,24 @@
 import CoreData
 import UIKit
 
-protocol TableUpdatable {
+public protocol TableUpdatable {
 	func apply(_ tableChange: TableChange)
 	func beginUpdates()
 	func endUpdates()
 }
 
+public protocol BatchUpdatable {
+	func apply(_ tableChange: TableChange)
+	func performBatchUpdates(_: @escaping () -> Void)
+}
+
 extension UICollectionView: BatchUpdatable {
 
-	func performBatchUpdates(_ updates: @escaping () -> Void) {
+	public func performBatchUpdates(_ updates: @escaping () -> Void) {
 		performBatchUpdates(updates, completion: nil)
 	}
 
-	func apply(_ tableChange: TableChange) {
+	public func apply(_ tableChange: TableChange) {
 		switch tableChange {
 		case .delete(let indexPath):
 			deleteItems(at: [indexPath])
@@ -31,14 +36,9 @@ extension UICollectionView: BatchUpdatable {
 	}
 }
 
-protocol BatchUpdatable {
-	func apply(_ tableChange: TableChange)
-	func performBatchUpdates(_: @escaping () -> Void)
-}
-
 extension UITableView: BatchUpdatable {
 
-	func apply(_ tableChange: TableChange) {
+	public func apply(_ tableChange: TableChange) {
 		switch tableChange {
 		case .delete(let indexPath):
 			deleteRows(at: [indexPath], with: .automatic)
@@ -55,32 +55,32 @@ extension UITableView: BatchUpdatable {
 		}
 	}
 
-	func performBatchUpdates(_ updates: @escaping () -> Void) {
+	public func performBatchUpdates(_ updates: @escaping () -> Void) {
 		beginUpdates()
 		updates()
 		endUpdates()
 	}
 }
 
-class TableUpdater: TableUpdatable {
+public class TableUpdater: TableUpdatable {
 
 	let batchUpdater: BatchUpdatable
 
-	init(_ batchUpdater: BatchUpdatable) {
+	public init(_ batchUpdater: BatchUpdatable) {
 		self.batchUpdater = batchUpdater
 	}
 
 	private var changes: [TableChange] = []
 
-	func apply(_ tableChange: TableChange) {
+	public func apply(_ tableChange: TableChange) {
 		changes.append(tableChange)
 	}
 
-	func beginUpdates() {
+	public func beginUpdates() {
 		changes = []
 	}
 
-	func endUpdates() {
+	public func endUpdates() {
 		let (updates, other) = extractCorrectedUpdates(in: self.changes)
 
 		if other.count > 0 {

@@ -1,6 +1,6 @@
 import CoreData
 
-protocol ManagedObjectContextProtocol {
+public protocol ManagedObjectContextProtocol {
 	func delete(_: NSManagedObject)
 	func fetch(_: NSFetchRequest<NSFetchRequestResult>) throws -> [Any]
 	func insertObject<O: ManagedObjectProtocol>() -> O
@@ -26,7 +26,7 @@ extension NSManagedObjectContext {
 }
 
 extension NSManagedObjectContext: ManagedObjectContextProtocol {
-	func insertObject<O: ManagedObjectProtocol>() -> O {
+	public func insertObject<O: ManagedObjectProtocol>() -> O {
 		guard let object = NSEntityDescription.insertNewObject(
 			forEntityName: O.entityName, into: self) as? O else {
 				fatalError("Wrong object type")
@@ -34,7 +34,7 @@ extension NSManagedObjectContext: ManagedObjectContextProtocol {
 		return object
 	}
 
-	func performChanges(_ block: @escaping (NSManagedObjectContext) -> ()) {
+	public func performChanges(_ block: @escaping (NSManagedObjectContext) -> ()) {
 		perform {
 			block(self)
 			_ = self.saveOrRollback()

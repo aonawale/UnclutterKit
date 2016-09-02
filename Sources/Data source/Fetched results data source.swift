@@ -1,8 +1,8 @@
 import CoreData
 
-class FetchedResultsDataSource<Model: NSFetchRequestResult, Item> {
+public class FetchedResultsDataSource<Model: NSFetchRequestResult, Item> {
 
-	init(fetchRequest: NSFetchRequest<Model>,
+	public init(fetchRequest: NSFetchRequest<Model>,
 	     managedObjectContext: NSManagedObjectContext,
 	     tableUpdater: TableUpdatable,
 	     sectionNameKeyPath: String? = nil,
@@ -30,19 +30,19 @@ class FetchedResultsDataSource<Model: NSFetchRequestResult, Item> {
 
 extension FetchedResultsDataSource: DataSourceProtocol {
 
-	func item(at indexPath: IndexPath) -> Item {
+	public func item(at indexPath: IndexPath) -> Item {
 		return transform(fetchedResultsController.object(at: indexPath))
 	}
 
-	func numberOfItems(inSection section: Int) -> Int {
+	public func numberOfItems(inSection section: Int) -> Int {
 		return fetchedResultsController.sections?[section].numberOfObjects ?? 0
 	}
 
-	func numberOfSections() -> Int {
+	public func numberOfSections() -> Int {
 		return fetchedResultsController.sections?.count ?? 0
 	}
 
-	func titleForHeader(inSection section: Int) -> String? {
+	public func titleForHeader(inSection section: Int) -> String? {
 		return fetchedResultsController.sections?[section].name
 	}
 }
