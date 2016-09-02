@@ -13,21 +13,21 @@ struct PathComponent: PathComponentProtocol {
 	}
 }
 
-extension PathComponent: ExtendedGraphemeClusterLiteralConvertible {
+extension PathComponent: ExpressibleByExtendedGraphemeClusterLiteral {
 
 	init(extendedGraphemeClusterLiteral value: String) {
 		self.init(fromString: value)
 	}
 }
 
-extension PathComponent: UnicodeScalarLiteralConvertible {
+extension PathComponent: ExpressibleByUnicodeScalarLiteral {
 
 	init(unicodeScalarLiteral value: String) {
 		self.init(fromString: value)
 	}
 }
 
-extension PathComponent: StringLiteralConvertible {
+extension PathComponent: ExpressibleByStringLiteral {
 
 	init(stringLiteral value: String) {
 		self.init(fromString: value)

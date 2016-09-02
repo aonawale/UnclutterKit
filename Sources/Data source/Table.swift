@@ -2,12 +2,12 @@ import UIKit
 
 struct TableItem {
 
-	init<Cell: UITableViewCell, ViewModel where
-		Cell: ReusableViewProtocol, Cell.ViewModel == ViewModel>
+	init<Cell: UITableViewCell, ViewModel>
 		(_: Cell.Type,
 		 viewModel: ViewModel,
-		 onDelete: ((viewModel: ViewModel, indexPath: IndexPath) -> Void)? = nil,
-		 onDidSelect: ((viewModel: ViewModel, indexPath: IndexPath) -> Void)? = nil) {
+		 onDelete: ((ViewModel, IndexPath) -> Void)? = nil,
+		 onDidSelect: ((ViewModel, IndexPath) -> Void)? = nil) where
+		Cell: ReusableViewProtocol, Cell.ViewModel == ViewModel {
 
 		dequeueCell = { (tableView, indexPath) in
 			var cell = tableView.dequeueReusableCell(for: indexPath) as Cell
@@ -15,23 +15,23 @@ struct TableItem {
 			return cell
 		}
 		deleteItem = {
-			onDelete?(viewModel: viewModel, indexPath: $0)
+			onDelete?(viewModel, $0)
 		}
 		isDeletable = onDelete != nil
 		didSelectItem = {
-			onDidSelect?(viewModel: viewModel, indexPath: $0)
+			onDidSelect?(viewModel, $0)
 		}
 	}
 
-	private let dequeueCell: (from: UITableView, for: IndexPath) -> UITableViewCell
-	private let deleteItem: (at: IndexPath) -> Void
-	private let didSelectItem: (at: IndexPath) -> Void
-	private let isDeletable: Bool
+	fileprivate let dequeueCell: (UITableView, IndexPath) -> UITableViewCell
+	fileprivate let deleteItem: (IndexPath) -> Void
+	fileprivate let didSelectItem: (IndexPath) -> Void
+	fileprivate let isDeletable: Bool
 }
 
 struct Table {
 
-	init<T: DataSourceProtocol where T.Item == TableItem>(dataSource: T) {
+	init<T: DataSourceProtocol>(dataSource: T) where T.Item == TableItem {
 		helper = TableViewHelper(AnyDataSource(dataSource))
 	}
 
@@ -63,7 +63,7 @@ extension TableViewHelper: UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return dataSource.item(at: indexPath).dequeueCell(from: tableView, for: indexPath)
+		return dataSource.item(at: indexPath).dequeueCell(tableView, indexPath)
 	}
 
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -75,7 +75,7 @@ extension TableViewHelper: UITableViewDataSource {
 	               forRowAt indexPath: IndexPath) {
 		switch editingStyle {
 		case .delete:
-			dataSource.item(at: indexPath).deleteItem(at: indexPath)
+			dataSource.item(at: indexPath).deleteItem(indexPath)
 		default: ()
 		}
 	}
@@ -90,6 +90,6 @@ extension TableViewHelper: UITableViewDataSource {
 extension TableViewHelper: UITableViewDelegate {
 
 	func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-		dataSource.item(at: indexPath).didSelectItem(at: indexPath)
+		dataSource.item(at: indexPath).didSelectItem(indexPath)
 	}
 }

@@ -2,7 +2,7 @@ import CoreData
 
 protocol ManagedObjectProtocol: class {
 	static var defaultFetchBatchSize: Int { get }
-	static var defaultSortDescriptors: [SortDescriptor] { get }
+	static var defaultSortDescriptors: [NSSortDescriptor] { get }
 	static var entityName: String { get }
 
 	var managedObjectContext: NSManagedObjectContext? { get }
@@ -14,18 +14,18 @@ extension ManagedObjectProtocol {
 		return 0
 	}
 
-	static var defaultSortDescriptors: [SortDescriptor] {
+	static var defaultSortDescriptors: [NSSortDescriptor] {
 		return []
 	}
 
 	static var entityName: String {
-		return String(self)
+		return String(describing: self)
 	}
 
 	static func materializedObject(in managedObjectContext: ManagedObjectContextProtocol,
-	                               matching predicate: Predicate) -> Self? {
+	                               matching predicate: NSPredicate) -> Self? {
 		for object in managedObjectContext.registeredObjects where !object.isFault {
-			guard let result = object as? Self where predicate.evaluate(with: result) else {
+			guard let result = object as? Self , predicate.evaluate(with: result) else {
 				continue
 			}
 			return result
@@ -48,7 +48,7 @@ extension ManagedObjectProtocol where Self: NSFetchRequestResult {
 	}
 
 	static func findOrFetch(in managedObjectContext: NSManagedObjectContext,
-	                        matchingPredicate predicate: Predicate) -> Self? {
+	                        matchingPredicate predicate: NSPredicate) -> Self? {
 		// Note, due to a bug in Swift 3 (Xcode 8 beta 2) a closure of type
 		// `(NSFetchRequest<Self>) -> Void` (e.g. `then`) cannot be used to configure the request
 		let request = fetchRequest
@@ -60,12 +60,13 @@ extension ManagedObjectProtocol where Self: NSFetchRequestResult {
 			return try materializedObject(in: managedObjectContext, matching: predicate) ??
 				managedObjectContext.fetch(request).first
 		} catch {
-			fatalError("Error fetching object using fetchRequest: \(fetchRequest). Error: \(error).")
+			fatalError(
+				"Error fetching object using fetchRequest: \(fetchRequest). Error: \(error).")
 		}
 	}
 
 	static func findOrCreate(in managedObjectContext: NSManagedObjectContext,
-	                         matchingPredicate predicate: Predicate) -> Self {
+	                         matchingPredicate predicate: NSPredicate) -> Self {
 		return
 			findOrFetch(in: managedObjectContext, matchingPredicate: predicate) ??
 			managedObjectContext.insertObject()

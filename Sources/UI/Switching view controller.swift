@@ -4,8 +4,8 @@ final class SwitchingViewController: ViewController {
 
 	var isPresentingA: Bool = true
 
-	init(presentA: () -> UIViewController,
-	     presentB: () -> UIViewController,
+	init(presentA: @escaping () -> UIViewController,
+	     presentB: @escaping () -> UIViewController,
 	     animationOptions: UIViewAnimationOptions = []) {
 		self.presentA = presentA
 		self.presentB = presentB
@@ -17,9 +17,9 @@ final class SwitchingViewController: ViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 
-	private let presentA: () -> UIViewController
-	private let presentB: () -> UIViewController
-	private let viewAnimationOptions: UIViewAnimationOptions
+	fileprivate let presentA: () -> UIViewController
+	fileprivate let presentB: () -> UIViewController
+	fileprivate let viewAnimationOptions: UIViewAnimationOptions
 }
 
 extension SwitchingViewController {

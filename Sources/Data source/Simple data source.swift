@@ -1,14 +1,14 @@
 import Foundation
 
-class SimpleDataSource<Model, Item, S: SectionProtocol where S.Element == Model> {
+class SimpleDataSource<Model, Item, S: SectionProtocol> where S.Element == Model {
 
-	init(sections: [S], transform: (Model) -> Item) {
+	init(sections: [S], transform: @escaping (Model) -> Item) {
 		self.sections = sections
 		self.transform = transform
 	}
 
-	private var sections: [S]
-	private let transform: (Model) -> Item
+	fileprivate var sections: [S]
+	fileprivate let transform: (Model) -> Item
 }
 
 extension SimpleDataSource: DataSourceProtocol {

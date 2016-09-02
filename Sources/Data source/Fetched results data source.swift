@@ -6,7 +6,7 @@ class FetchedResultsDataSource<Model: NSFetchRequestResult, Item> {
 	     managedObjectContext: NSManagedObjectContext,
 	     tableUpdater: TableUpdatable,
 	     sectionNameKeyPath: String? = nil,
-	     transform: (Model) -> Item) {
+	     transform: @escaping (Model) -> Item) {
 
 		fetchedResultsController = NSFetchedResultsController<Model>(
 			fetchRequest: fetchRequest,
@@ -22,10 +22,10 @@ class FetchedResultsDataSource<Model: NSFetchRequestResult, Item> {
 		self.transform = transform
 	}
 
-	private let fetchedResultsController: NSFetchedResultsController<Model>
+	fileprivate let fetchedResultsController: NSFetchedResultsController<Model>
+	fileprivate let transform: (Model) -> Item
 	private let fetchedResultsControllerDelegate: FetchedResultsControllerDelegate<Model>
 	private let tableUpdater: TableUpdatable
-	private let transform: (Model) -> Item
 }
 
 extension FetchedResultsDataSource: DataSourceProtocol {

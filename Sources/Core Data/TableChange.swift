@@ -30,8 +30,10 @@ extension TableChange {
 			self = .insert(at: indexPath)
 
 		case .move:
-			guard let source = indexPath, destination = newIndexPath else {
-				return nil
+			guard
+				let source = indexPath,
+				let destination = newIndexPath else {
+					return nil
 			}
 			self = .move(from: source, to: destination)
 
@@ -59,18 +61,24 @@ extension TableChange: Equatable {}
 
 func == (left: TableChange, right: TableChange) -> Bool {
 	switch (left, right) {
-	case (.insertSection(let leftSection), .insertSection(let rightSection)) where leftSection == rightSection:
+	case (.insertSection(let leftSection), .insertSection(let rightSection))
+		where leftSection == rightSection:
 		return true
-	case (.deleteSection(let leftSection), .deleteSection(let rightSection)) where leftSection == rightSection:
+	case (.deleteSection(let leftSection), .deleteSection(let rightSection))
+		where leftSection == rightSection:
 		return true
-	case (.insert(let leftIndexPath), .insert(let rightIndexPath)) where leftIndexPath == rightIndexPath:
+	case (.insert(let leftIndexPath), .insert(let rightIndexPath))
+		where leftIndexPath == rightIndexPath:
 		return true
-	case (.update(let leftIndexPath), .update(let rightIndexPath)) where leftIndexPath == rightIndexPath:
+	case (.update(let leftIndexPath), .update(let rightIndexPath))
+		where leftIndexPath == rightIndexPath:
 		return true
-	case (.delete(let leftIndexPath), .delete(let rightIndexPath)) where leftIndexPath == rightIndexPath:
+	case (.delete(let leftIndexPath), .delete(let rightIndexPath))
+		where leftIndexPath == rightIndexPath:
 		return true
-	case (.move(let leftIndexPath1, let leftIndexPath2), .move(let rightIndexPath1, let rightIndexPath2)) where
-		leftIndexPath1 == rightIndexPath1 && leftIndexPath2 == rightIndexPath2:
+	case (.move(let leftIndexPath1, let leftIndexPath2),
+	      .move(let rightIndexPath1, let rightIndexPath2))
+		where leftIndexPath1 == rightIndexPath1 && leftIndexPath2 == rightIndexPath2:
 		return true
 	default:
 		return false
@@ -97,7 +105,8 @@ func < (left: TableChange, right: TableChange) -> Bool {
 		return true
 
 	// Move
-	case (.move(let leftFromIndexPath, let leftToIndexPath), .move(let rightFromIndexPath, let rightToIndexPath)):
+	case (.move(let leftFromIndexPath, let leftToIndexPath),
+	      .move(let rightFromIndexPath, let rightToIndexPath)):
 		if leftFromIndexPath == rightFromIndexPath {
 			return leftToIndexPath < rightToIndexPath
 		}

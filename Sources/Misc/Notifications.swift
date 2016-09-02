@@ -37,7 +37,7 @@ class NotificationManager {
 
 	func registerObserver(forNotification notification: NotificationProtocol,
 	                      object: AnyObject? = nil,
-	                      block: (Notification) -> Void) {
+	                      block: @escaping (Notification) -> Void) {
 		observerTokens.append(
 			notificationCenter.addObserver(
 				forName: notification.name,

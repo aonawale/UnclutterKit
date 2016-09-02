@@ -2,16 +2,14 @@ import CoreData
 import UIKit
 
 protocol TableUpdatable {
-
+	func apply(_ tableChange: TableChange)
 	func beginUpdates()
 	func endUpdates()
-
-	func apply(_ tableChange: TableChange)
 }
 
 extension UICollectionView: BatchUpdatable {
 
-	func performBatchUpdates(_ updates: () -> Void) {
+	func performBatchUpdates(_ updates: @escaping () -> Void) {
 		performBatchUpdates(updates, completion: nil)
 	}
 
@@ -35,7 +33,7 @@ extension UICollectionView: BatchUpdatable {
 
 protocol BatchUpdatable {
 	func apply(_ tableChange: TableChange)
-	func performBatchUpdates(_: () -> Void)
+	func performBatchUpdates(_: @escaping () -> Void)
 }
 
 extension UITableView: BatchUpdatable {
@@ -57,7 +55,7 @@ extension UITableView: BatchUpdatable {
 		}
 	}
 
-	func performBatchUpdates(_ updates: () -> Void) {
+	func performBatchUpdates(_ updates: @escaping () -> Void) {
 		beginUpdates()
 		updates()
 		endUpdates()
@@ -143,11 +141,13 @@ NSFetchedResultsControllerDelegate {
 	}
 
 	func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
-	                didChange anObject: AnyObject,
+	                didChange anObject: Any,
 	                at indexPath: IndexPath?,
 	                for type: NSFetchedResultsChangeType,
 	                newIndexPath: IndexPath?) {
-		if let tableChange = TableChange(type: type, indexPath: indexPath, newIndexPath: newIndexPath) {
+		if let tableChange = TableChange(type: type,
+		                                 indexPath: indexPath,
+		                                 newIndexPath: newIndexPath) {
 			tableUpdater.apply(tableChange)
 		}
 	}

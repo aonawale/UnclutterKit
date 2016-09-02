@@ -2,7 +2,7 @@ import Foundation
 
 class AnyDataSource<Item>: DataSourceProtocol {
 
-	init<D: DataSourceProtocol where D.Item == Item>(_ dataSource: D) {
+	init<D: DataSourceProtocol>(_ dataSource: D) where D.Item == Item {
 		_item = dataSource.item
 		_numberOfItems = dataSource.numberOfItems
 		_numberOfSections = dataSource.numberOfSections

@@ -7,24 +7,22 @@ enum ChangeType {
 
 class ManagedObjectObserver {
 
-	init?<O: ManagedObjectProtocol where O: Hashable>(
-		object: O,
-		changeHandler: (ChangeType) -> Void) {
+	init?<O: ManagedObjectProtocol>(object: O, changeHandler: @escaping (ChangeType) -> Void)
+		where O: Hashable {
+			guard let managedObjectContext = object.managedObjectContext else {
+				return nil
+			}
 
-		guard let managedObjectContext = object.managedObjectContext else {
-			return nil
-		}
-
-		notificationManager.registerObserver(
-			forNotification: ManagingContextNotification.objectsDidChange,
-			object: managedObjectContext) { notification in
-				let changedObjects = ChangedObjects<O>(notification)
-				if changedObjects.deletedObjects.contains(object) {
-					changeHandler(.delete)
-				} else if changedObjects.updatedObjects.contains(object) {
-					changeHandler(.update)
-				}
-		}
+			notificationManager.registerObserver(
+				forNotification: ManagingContextNotification.objectsDidChange,
+				object: managedObjectContext) { notification in
+					let changedObjects = ChangedObjects<O>(notification)
+					if changedObjects.deletedObjects.contains(object) {
+						changeHandler(.delete)
+					} else if changedObjects.updatedObjects.contains(object) {
+						changeHandler(.update)
+					}
+			}
 	}
 
 	private let notificationManager = NotificationManager()
@@ -37,7 +35,7 @@ private enum ManagingContextNotification: String, NotificationProtocol {
 	case objectsDidChange = "NSObjectsChangedInManagingContextNotification"
 }
 
-private struct ChangedObjects<O: ManagedObjectProtocol where O: Hashable> {
+private struct ChangedObjects<O: ManagedObjectProtocol> where O: Hashable {
 
 	typealias S = Set<O>
 
@@ -78,7 +76,7 @@ private struct ChangedObjects<O: ManagedObjectProtocol where O: Hashable> {
 		return managedObjectContext
 	}
 
-	let notification: NSNotification
+	let notification: Notification
 
 	func objects(forKey key: String) -> S {
 		guard let objects = notification.userInfo?[key] as? Set<NSManagedObject> else {

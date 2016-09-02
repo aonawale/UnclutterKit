@@ -8,10 +8,9 @@ protocol SupplementaryViewProviding {
 	func reuseIdentifierForSupplementaryView(ofKind: String, at: IndexPath) -> String!
 }
 
-struct SupplementaryViewProvider
-	<F: UICollectionReusableView, H: UICollectionReusableView where
-	F: ReusableViewProtocol, H: ReusableViewProtocol,
-	F.ViewModel == String, H.ViewModel == String>: SupplementaryViewProviding {
+struct SupplementaryViewProvider<F: UICollectionReusableView, H: UICollectionReusableView>:
+	SupplementaryViewProviding where
+	F: ReusableViewProtocol, H: ReusableViewProtocol, F.ViewModel == String, H.ViewModel == String {
 
 	func configure(supplementaryView: UICollectionReusableView,
 	               ofKind kind: String,
