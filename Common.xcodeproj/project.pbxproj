@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F2A74161D382A4600F795AC /* Common.iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2A74021D38284600F795AC /* Common.iOS.framework */; };
+		5F2A74161D382A4600F795AC /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2A74021D38284600F795AC /* Common.framework */; };
 		5F2A743E1D382C6E00F795AC /* Fetched results controller delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A74221D382C6E00F795AC /* Fetched results controller delegate.swift */; };
 		5F2A743F1D382C6E00F795AC /* Managed object context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A74231D382C6E00F795AC /* Managed object context.swift */; };
 		5F2A74401D382C6E00F795AC /* Managed object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A74241D382C6E00F795AC /* Managed object.swift */; };
@@ -45,9 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5F2A74021D38284600F795AC /* Common.iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Common.iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F2A74021D38284600F795AC /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2A74061D38284600F795AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F2A74111D382A4600F795AC /* Common.iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Common.iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F2A74111D382A4600F795AC /* CommonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2A74151D382A4600F795AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F2A74221D382C6E00F795AC /* Fetched results controller delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fetched results controller delegate.swift"; sourceTree = "<group>"; };
 		5F2A74231D382C6E00F795AC /* Managed object context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Managed object context.swift"; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F2A74161D382A4600F795AC /* Common.iOS.framework in Frameworks */,
+				5F2A74161D382A4600F795AC /* Common.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,8 +106,8 @@
 		5F2A74031D38284600F795AC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F2A74021D38284600F795AC /* Common.iOS.framework */,
-				5F2A74111D382A4600F795AC /* Common.iOSTests.xctest */,
+				5F2A74021D38284600F795AC /* Common.framework */,
+				5F2A74111D382A4600F795AC /* CommonTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,9 +205,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5F2A74011D38284600F795AC /* Common.iOS */ = {
+		5F2A74011D38284600F795AC /* Common */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5F2A740A1D38284600F795AC /* Build configuration list for PBXNativeTarget "Common.iOS" */;
+			buildConfigurationList = 5F2A740A1D38284600F795AC /* Build configuration list for PBXNativeTarget "Common" */;
 			buildPhases = (
 				5F2A73FD1D38284600F795AC /* Sources */,
 				5F2A73FE1D38284600F795AC /* Frameworks */,
@@ -218,14 +218,14 @@
 			);
 			dependencies = (
 			);
-			name = Common.iOS;
+			name = Common;
 			productName = Common.iOS;
-			productReference = 5F2A74021D38284600F795AC /* Common.iOS.framework */;
+			productReference = 5F2A74021D38284600F795AC /* Common.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		5F2A74101D382A4600F795AC /* Common.iOSTests */ = {
+		5F2A74101D382A4600F795AC /* CommonTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5F2A74191D382A4600F795AC /* Build configuration list for PBXNativeTarget "Common.iOSTests" */;
+			buildConfigurationList = 5F2A74191D382A4600F795AC /* Build configuration list for PBXNativeTarget "CommonTests" */;
 			buildPhases = (
 				5F2A740D1D382A4600F795AC /* Sources */,
 				5F2A740E1D382A4600F795AC /* Frameworks */,
@@ -236,9 +236,9 @@
 			dependencies = (
 				5F2A74181D382A4600F795AC /* PBXTargetDependency */,
 			);
-			name = Common.iOSTests;
+			name = CommonTests;
 			productName = Common.iOSTests;
-			productReference = 5F2A74111D382A4600F795AC /* Common.iOSTests.xctest */;
+			productReference = 5F2A74111D382A4600F795AC /* CommonTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -265,7 +265,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5F2A73FC1D38284600F795AC /* Build configuration list for PBXProject "Common.iOS" */;
+			buildConfigurationList = 5F2A73FC1D38284600F795AC /* Build configuration list for PBXProject "Common" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -277,8 +277,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5F2A74011D38284600F795AC /* Common.iOS */,
-				5F2A74101D382A4600F795AC /* Common.iOSTests */,
+				5F2A74011D38284600F795AC /* Common */,
+				5F2A74101D382A4600F795AC /* CommonTests */,
 			);
 		};
 /* End PBXProject section */
@@ -344,7 +344,7 @@
 /* Begin PBXTargetDependency section */
 		5F2A74181D382A4600F795AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5F2A74011D38284600F795AC /* Common.iOS */;
+			target = 5F2A74011D38284600F795AC /* Common */;
 			targetProxy = 5F2A74171D382A4600F795AC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -452,7 +452,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.unclutter.Common-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.unclutter.Common;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -468,7 +468,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.unclutter.Common-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.unclutter.Common;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -481,7 +481,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.unclutter.Common-iOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.unclutter.CommonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -493,7 +493,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.unclutter.Common-iOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.unclutter.CommonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -502,32 +502,32 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5F2A73FC1D38284600F795AC /* Build configuration list for PBXProject "Common.iOS" */ = {
+		5F2A73FC1D38284600F795AC /* Build configuration list for PBXProject "Common" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F2A74081D38284600F795AC /* Debug */,
 				5F2A74091D38284600F795AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		5F2A740A1D38284600F795AC /* Build configuration list for PBXNativeTarget "Common.iOS" */ = {
+		5F2A740A1D38284600F795AC /* Build configuration list for PBXNativeTarget "Common" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F2A740B1D38284600F795AC /* Debug */,
 				5F2A740C1D38284600F795AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		5F2A74191D382A4600F795AC /* Build configuration list for PBXNativeTarget "Common.iOSTests" */ = {
+		5F2A74191D382A4600F795AC /* Build configuration list for PBXNativeTarget "CommonTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F2A741A1D382A4600F795AC /* Debug */,
 				5F2A741B1D382A4600F795AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

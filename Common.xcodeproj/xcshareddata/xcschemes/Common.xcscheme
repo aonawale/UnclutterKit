@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5F2A74011D38284600F795AC"
-               BuildableName = "Common.iOS.framework"
-               BlueprintName = "Common.iOS"
-               ReferencedContainer = "container:Common.iOS.xcodeproj">
+               BuildableName = "Common.framework"
+               BlueprintName = "Common"
+               ReferencedContainer = "container:Common.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5F2A74011D38284600F795AC"
-            BuildableName = "Common.iOS.framework"
-            BlueprintName = "Common.iOS"
-            ReferencedContainer = "container:Common.iOS.xcodeproj">
+            BuildableName = "Common.framework"
+            BlueprintName = "Common"
+            ReferencedContainer = "container:Common.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5F2A74011D38284600F795AC"
-            BuildableName = "Common.iOS.framework"
-            BlueprintName = "Common.iOS"
-            ReferencedContainer = "container:Common.iOS.xcodeproj">
+            BuildableName = "Common.framework"
+            BlueprintName = "Common"
+            ReferencedContainer = "container:Common.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

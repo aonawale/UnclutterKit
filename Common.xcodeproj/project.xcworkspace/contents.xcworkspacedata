@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Common.iOS.xcodeproj">
+      location = "self:/Users/siemen/Projects/Unclutter/Common.iOS/Common.xcodeproj">
    </FileRef>
 </Workspace>
