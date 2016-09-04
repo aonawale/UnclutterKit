@@ -32,6 +32,7 @@
 		5F2A74531D382C6E00F795AC /* Refresh control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A743B1D382C6E00F795AC /* Refresh control.swift */; };
 		5F2A74541D382C6E00F795AC /* Reuseable view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A743C1D382C6E00F795AC /* Reuseable view.swift */; };
 		5F2A74551D382C6E00F795AC /* Switching view controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A743D1D382C6E00F795AC /* Switching view controller.swift */; };
+		5F8688501D7C78930069EA98 /* Safe array subscribting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F86884F1D7C78930069EA98 /* Safe array subscribting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		5F2A743B1D382C6E00F795AC /* Refresh control.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Refresh control.swift"; sourceTree = "<group>"; };
 		5F2A743C1D382C6E00F795AC /* Reuseable view.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reuseable view.swift"; sourceTree = "<group>"; };
 		5F2A743D1D382C6E00F795AC /* Switching view controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Switching view controller.swift"; sourceTree = "<group>"; };
+		5F86884F1D7C78930069EA98 /* Safe array subscribting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Safe array subscribting.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			children = (
 				5F2A74311D382C6E00F795AC /* Notifications.swift */,
 				5F2A74321D382C6E00F795AC /* Then.swift */,
+				5F86884F1D7C78930069EA98 /* Safe array subscribting.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = VWZ8DUTWFQ;
 						DevelopmentTeamName = "Siemen Sikkema (Personal Team)";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -328,6 +332,7 @@
 				5F2A744E1D382C6E00F795AC /* URL scheme.swift in Sources */,
 				5F2A744C1D382C6E00F795AC /* Then.swift in Sources */,
 				5F2A74491D382C6E00F795AC /* Supplementary view providing.swift in Sources */,
+				5F8688501D7C78930069EA98 /* Safe array subscribting.swift in Sources */,
 				5F2A744D1D382C6E00F795AC /* Path component.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +488,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.unclutter.CommonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;

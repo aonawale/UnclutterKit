@@ -35,7 +35,7 @@ extension FetchedResultsDataSource: DataSourceProtocol {
 	}
 
 	public func numberOfItems(inSection section: Int) -> Int {
-		return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+		return fetchedResultsController.sections?[safe: section]?.numberOfObjects ?? 0
 	}
 
 	public func numberOfSections() -> Int {
@@ -43,6 +43,6 @@ extension FetchedResultsDataSource: DataSourceProtocol {
 	}
 
 	public func titleForHeader(inSection section: Int) -> String? {
-		return fetchedResultsController.sections?[section].name
+		return fetchedResultsController.sections?[safe: section]?.name
 	}
 }
