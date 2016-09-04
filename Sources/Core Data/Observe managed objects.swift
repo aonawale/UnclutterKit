@@ -14,7 +14,7 @@ public class ManagedObjectObserver {
 			}
 
 			notificationManager.registerObserver(
-				forNotification: ManagingContextNotification.objectsDidChange,
+				forNotification: ManagedContextNotification.objectsDidChange,
 				object: managedObjectContext) { notification in
 					let changedObjects = ChangedObjects<O>(notification)
 					if changedObjects.deletedObjects.contains(object) {
@@ -23,12 +23,13 @@ public class ManagedObjectObserver {
 						changeHandler(.update)
 					}
 			}
+
 	}
 
 	private let notificationManager = NotificationManager()
 }
 
-private enum ManagingContextNotification: String, NotificationProtocol {
+private enum ManagedContextNotification: String, NotificationProtocol {
 	case didSave = "NSManagingContextDidSaveChangesNotification"
 	case willSave = "NSManagingContextWillSaveChangesNotification"
 
@@ -40,8 +41,12 @@ private struct ChangedObjects<O: ManagedObjectProtocol> where O: Hashable {
 	typealias S = Set<O>
 
 	init(_ notification: Notification) {
-		assert(ManagingContextNotification(rawValue: notification.name.rawValue)
-			== .objectsDidChange)
+		let managedObjectContextNotification = ManagedContextNotification(
+			rawValue: notification.name.rawValue)
+
+		assert(
+			managedObjectContextNotification == .didSave ||
+			managedObjectContextNotification == .objectsDidChange)
 		self.notification = notification
 	}
 

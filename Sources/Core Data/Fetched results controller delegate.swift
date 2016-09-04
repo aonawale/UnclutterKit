@@ -8,17 +8,12 @@ public protocol TableUpdatable {
 }
 
 public protocol BatchUpdatable {
-	func apply(_ tableChange: TableChange)
-	func performBatchUpdates(_: @escaping () -> Void)
+	func apply(_ changes: [TableChange])
 }
 
 extension UICollectionView: BatchUpdatable {
 
-	public func performBatchUpdates(_ updates: @escaping () -> Void) {
-		performBatchUpdates(updates, completion: nil)
-	}
-
-	public func apply(_ tableChange: TableChange) {
+	private func apply(_ tableChange: TableChange) {
 		switch tableChange {
 		case .delete(let indexPath):
 			deleteItems(at: [indexPath])
@@ -34,11 +29,15 @@ extension UICollectionView: BatchUpdatable {
 			insertSections([sectionIndex])
 		}
 	}
+
+	public func apply(_ changes: [TableChange]) {
+		performBatchUpdates({ changes.forEach(self.apply) }, completion: nil)
+	}
 }
 
 extension UITableView: BatchUpdatable {
 
-	public func apply(_ tableChange: TableChange) {
+	private func apply(_ tableChange: TableChange) {
 		switch tableChange {
 		case .delete(let indexPath):
 			deleteRows(at: [indexPath], with: .automatic)
@@ -55,9 +54,9 @@ extension UITableView: BatchUpdatable {
 		}
 	}
 
-	public func performBatchUpdates(_ updates: @escaping () -> Void) {
+	public func apply(_ changes: [TableChange]) {
 		beginUpdates()
-		updates()
+		changes.forEach(apply)
 		endUpdates()
 	}
 }
@@ -81,44 +80,66 @@ public class TableUpdater: TableUpdatable {
 	}
 
 	public func endUpdates() {
-		let (updates, other) = extractCorrectedUpdates(in: self.changes)
+		print(changes)
 
-		if other.count > 0 {
-			batchUpdater.performBatchUpdates({
-				other.forEach(self.batchUpdater.apply)
-			})
-		}
-		if updates.count > 0 {
-			batchUpdater.performBatchUpdates({
-				updates.forEach(self.batchUpdater.apply)
-			})
-		}
+		let (nonUpdates, updates) = changes.corrected()
+		batchUpdater.apply(nonUpdates)
+		batchUpdater.apply(updates)
 	}
 }
 
-func extractCorrectedUpdates(
-	in changes: [TableChange]) -> (updates: [TableChange], other: [TableChange]) {
+extension Sequence where Self.Iterator.Element == TableChange {
 
-	let updateIndexPaths = changes
-		.flatMap { change -> IndexPath? in
-			if case .update(let indexPath) = change {
-				return indexPath
+	func corrected() -> (nonUpdates: [TableChange], updates: [TableChange]) {
+		let nonUpdates = filter {
+			if case .update = $0 {
+				return false
+			}
+			return true
+		}
+
+		let updates: [TableChange] = flatMap {
+			if case .update(let indexPath) = $0 {
+				return TableChange.update(at: indexPath.adjusted(basedOn: nonUpdates))
 			}
 			return nil
-	}
-
-	let nonUpdateChanges = changes.filter {
-		if case .update = $0 {
-			return false
 		}
-		return true
+
+		return (nonUpdates, updates)
 	}
+}
 
-	let updates = updateIndexPaths
-		.map { TableChange.update(at: adjust($0, basedOn: nonUpdateChanges)) }
+extension IndexPath {
 
-	return (updates: updates,
-	        other: nonUpdateChanges)
+	func adjusted(basedOn changes: [TableChange]) -> IndexPath {
+		var newRow = self.row
+		var newSection = self.section
+
+		for change in changes.sorted() {
+			switch change {
+			case .deleteSection(let deletedSection) where deletedSection <= newSection:
+				newSection -= 1
+			case .insertSection(let insertedSection) where insertedSection <= newSection:
+				newSection += 1
+			case .delete(let deletedIndexPath)
+				where deletedIndexPath.section == newSection && deletedIndexPath.row <= newRow:
+				newRow -= 1
+			case .insert(let insertedIndexPath)
+				where insertedIndexPath.section == newSection && insertedIndexPath.row <= newRow:
+				newRow += 1
+			case .move(let fromIndexPath, let toIndexPath):
+				if fromIndexPath.section == newSection && fromIndexPath.row <= newRow {
+					newRow -= 1
+				}
+				if toIndexPath.section == newSection && toIndexPath.row <= newRow {
+					newRow += 1
+				}
+			default: ()
+			}
+		}
+
+		return IndexPath(row: newRow, section: newSection)
+	}
 }
 
 class FetchedResultsControllerDelegate<Model: NSFetchRequestResult>: NSObject,

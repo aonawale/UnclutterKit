@@ -145,33 +145,3 @@ public func < (left: TableChange, right: TableChange) -> Bool {
 		return false
 	}
 }
-
-func adjust(_ indexPath: IndexPath, basedOn changes: [TableChange]) -> IndexPath {
-	var section = indexPath.section
-	var row = indexPath.row
-
-	for change in changes.sorted() {
-		switch change {
-		case .deleteSection(let deletedSection) where deletedSection <= section:
-			section -= 1
-		case .insertSection(let insertedSection) where insertedSection <= section:
-			section += 1
-		case .delete(let deletedIndexPath)
-			where deletedIndexPath.section == section && deletedIndexPath.row <= row:
-			row -= 1
-		case .insert(let insertedIndexPath)
-			where insertedIndexPath.section == section && insertedIndexPath.row <= row:
-			row += 1
-		case .move(let fromIndexPath, let toIndexPath):
-			if fromIndexPath.section == section && fromIndexPath.row <= row {
-				row -= 1
-			}
-			if toIndexPath.section == section && toIndexPath.row <= row {
-				row += 1
-			}
-		default: ()
-		}
-	}
-
-	return IndexPath(row: row, section: section)
-}

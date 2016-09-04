@@ -49,12 +49,11 @@ extension ManagedObjectProtocol where Self: NSFetchRequestResult {
 
 	static func findOrFetch(in managedObjectContext: NSManagedObjectContext,
 	                        matchingPredicate predicate: NSPredicate) -> Self? {
-		// Note, due to a bug in Swift 3 (Xcode 8 beta 2) a closure of type
-		// `(NSFetchRequest<Self>) -> Void` (e.g. `then`) cannot be used to configure the request
-		let request = fetchRequest
-		request.fetchLimit = 1
-		request.predicate = predicate
-		request.returnsObjectsAsFaults = false
+		let request = fetchRequest.then {
+			$0.fetchLimit = 1
+			$0.predicate = predicate
+			$0.returnsObjectsAsFaults = false
+		}
 
 		do {
 			return try materializedObject(in: managedObjectContext, matching: predicate) ??
