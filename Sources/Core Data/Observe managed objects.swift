@@ -50,6 +50,12 @@ private struct ChangedObjects<O: ManagedObjectProtocol> where O: Hashable {
 		self.notification = notification
 	}
 
+	// MARK: deleted/inserted/updated
+
+	var deletedObjects: S {
+		return objects(forKey: NSDeletedObjectsKey)
+	}
+
 	var insertedObjects: S {
 		return objects(forKey: NSInsertedObjectsKey)
 	}
@@ -58,9 +64,7 @@ private struct ChangedObjects<O: ManagedObjectProtocol> where O: Hashable {
 		return objects(forKey: NSUpdatedObjectsKey)
 	}
 
-	var deletedObjects: S {
-		return objects(forKey: NSDeletedObjectsKey)
-	}
+	// MARK: refreshed/invalidated
 
 	var refreshedObjects: S {
 		return objects(forKey: NSRefreshedObjectsKey)
@@ -74,16 +78,18 @@ private struct ChangedObjects<O: ManagedObjectProtocol> where O: Hashable {
 		return notification.userInfo?[NSInvalidatedAllObjectsKey] != nil
 	}
 
-	var managedObjectContext: NSManagedObjectContext {
+	// MARK: private
+
+	private var managedObjectContext: NSManagedObjectContext {
 		guard let managedObjectContext = notification.object as? NSManagedObjectContext else {
 			fatalError("Invalid notification object")
 		}
 		return managedObjectContext
 	}
 
-	let notification: Notification
+	private let notification: Notification
 
-	func objects(forKey key: String) -> S {
+	private func objects(forKey key: String) -> S {
 		guard let objects = notification.userInfo?[key] as? Set<NSManagedObject> else {
 			return S()
 		}

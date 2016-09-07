@@ -2,12 +2,13 @@ import Foundation
 
 public class SimpleDataSource<Model, Item, S: SectionProtocol> where S.Element == Model {
 
+	public var sections: [S]
+
 	public init(sections: [S], transform: @escaping (Model) -> Item) {
 		self.sections = sections
 		self.transform = transform
 	}
 
-	fileprivate var sections: [S]
 	fileprivate let transform: (Model) -> Item
 }
 
