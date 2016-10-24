@@ -5,6 +5,10 @@ public protocol SectionProtocol {
 	var title: String? { get set }
 }
 
+extension SectionProtocol {
+    var title: String? { return nil }
+}
+
 public class Section<Element>: SectionProtocol {
 	public var items: [Element]
 	public var title: String?
