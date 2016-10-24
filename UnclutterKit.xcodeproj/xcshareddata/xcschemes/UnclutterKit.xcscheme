@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5F2A74011D38284600F795AC"
-               BuildableName = "Common.framework"
-               BlueprintName = "Common"
-               ReferencedContainer = "container:Common.xcodeproj">
+               BuildableName = "UnclutterKit.framework"
+               BlueprintName = "UnclutterKit"
+               ReferencedContainer = "container:UnclutterKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5F2A74011D38284600F795AC"
-            BuildableName = "Common.framework"
-            BlueprintName = "Common"
-            ReferencedContainer = "container:Common.xcodeproj">
+            BuildableName = "UnclutterKit.framework"
+            BlueprintName = "UnclutterKit"
+            ReferencedContainer = "container:UnclutterKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5F2A74011D38284600F795AC"
-            BuildableName = "Common.framework"
-            BlueprintName = "Common"
-            ReferencedContainer = "container:Common.xcodeproj">
+            BuildableName = "UnclutterKit.framework"
+            BlueprintName = "UnclutterKit"
+            ReferencedContainer = "container:UnclutterKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

@@ -80,8 +80,6 @@ public class TableUpdater: TableUpdatable {
 	}
 
 	public func endUpdates() {
-		print(changes)
-
 		let (nonUpdates, updates) = changes.corrected()
 		batchUpdater.apply(nonUpdates)
 		batchUpdater.apply(updates)

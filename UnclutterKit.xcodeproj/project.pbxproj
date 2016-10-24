@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F2A74161D382A4600F795AC /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2A74021D38284600F795AC /* Common.framework */; };
+		5F2A74161D382A4600F795AC /* UnclutterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2A74021D38284600F795AC /* UnclutterKit.framework */; };
 		5F2A743E1D382C6E00F795AC /* Fetched results controller delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A74221D382C6E00F795AC /* Fetched results controller delegate.swift */; };
 		5F2A743F1D382C6E00F795AC /* Managed object context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A74231D382C6E00F795AC /* Managed object context.swift */; };
 		5F2A74401D382C6E00F795AC /* Managed object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A74241D382C6E00F795AC /* Managed object.swift */; };
@@ -41,14 +41,14 @@
 			containerPortal = 5F2A73F91D38284600F795AC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 5F2A74011D38284600F795AC;
-			remoteInfo = Common.iOS;
+			remoteInfo = UnclutterKit;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5F2A74021D38284600F795AC /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F2A74021D38284600F795AC /* UnclutterKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UnclutterKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2A74061D38284600F795AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F2A74111D382A4600F795AC /* CommonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F2A74111D382A4600F795AC /* UnclutterKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnclutterKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2A74151D382A4600F795AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F2A74221D382C6E00F795AC /* Fetched results controller delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fetched results controller delegate.swift"; sourceTree = "<group>"; };
 		5F2A74231D382C6E00F795AC /* Managed object context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Managed object context.swift"; sourceTree = "<group>"; };
@@ -74,6 +74,7 @@
 		5F2A743B1D382C6E00F795AC /* Refresh control.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Refresh control.swift"; sourceTree = "<group>"; };
 		5F2A743C1D382C6E00F795AC /* Reuseable view.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reuseable view.swift"; sourceTree = "<group>"; };
 		5F2A743D1D382C6E00F795AC /* Switching view controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Switching view controller.swift"; sourceTree = "<group>"; };
+		5F7CD73B1D80778A00CE7342 /* Changeset.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Changeset.framework; path = Carthage/Build/iOS/Changeset.framework; sourceTree = "<group>"; };
 		5F86884F1D7C78930069EA98 /* Safe array subscribting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Safe array subscribting.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F2A74161D382A4600F795AC /* Common.framework in Frameworks */,
+				5F2A74161D382A4600F795AC /* UnclutterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,14 +103,15 @@
 				5F2A74031D38284600F795AC /* Products */,
 				5F2A74041D38284600F795AC /* Sources */,
 				5F2A74121D382A4600F795AC /* Tests */,
+				5F7CD73A1D80778A00CE7342 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		5F2A74031D38284600F795AC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F2A74021D38284600F795AC /* Common.framework */,
-				5F2A74111D382A4600F795AC /* CommonTests.xctest */,
+				5F2A74021D38284600F795AC /* UnclutterKit.framework */,
+				5F2A74111D382A4600F795AC /* UnclutterKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,6 +197,14 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		5F7CD73A1D80778A00CE7342 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F7CD73B1D80778A00CE7342 /* Changeset.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -208,9 +218,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5F2A74011D38284600F795AC /* Common */ = {
+		5F2A74011D38284600F795AC /* UnclutterKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5F2A740A1D38284600F795AC /* Build configuration list for PBXNativeTarget "Common" */;
+			buildConfigurationList = 5F2A740A1D38284600F795AC /* Build configuration list for PBXNativeTarget "UnclutterKit" */;
 			buildPhases = (
 				5F2A73FD1D38284600F795AC /* Sources */,
 				5F2A73FE1D38284600F795AC /* Frameworks */,
@@ -221,14 +231,14 @@
 			);
 			dependencies = (
 			);
-			name = Common;
-			productName = Common.iOS;
-			productReference = 5F2A74021D38284600F795AC /* Common.framework */;
+			name = UnclutterKit;
+			productName = UnclutterKit;
+			productReference = 5F2A74021D38284600F795AC /* UnclutterKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		5F2A74101D382A4600F795AC /* CommonTests */ = {
+		5F2A74101D382A4600F795AC /* UnclutterKitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5F2A74191D382A4600F795AC /* Build configuration list for PBXNativeTarget "CommonTests" */;
+			buildConfigurationList = 5F2A74191D382A4600F795AC /* Build configuration list for PBXNativeTarget "UnclutterKitTests" */;
 			buildPhases = (
 				5F2A740D1D382A4600F795AC /* Sources */,
 				5F2A740E1D382A4600F795AC /* Frameworks */,
@@ -239,9 +249,9 @@
 			dependencies = (
 				5F2A74181D382A4600F795AC /* PBXTargetDependency */,
 			);
-			name = CommonTests;
-			productName = Common.iOSTests;
-			productReference = 5F2A74111D382A4600F795AC /* CommonTests.xctest */;
+			name = UnclutterKitTests;
+			productName = UnclutterKitTests;
+			productReference = 5F2A74111D382A4600F795AC /* UnclutterKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -269,7 +279,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5F2A73FC1D38284600F795AC /* Build configuration list for PBXProject "Common" */;
+			buildConfigurationList = 5F2A73FC1D38284600F795AC /* Build configuration list for PBXProject "UnclutterKit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -281,8 +291,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5F2A74011D38284600F795AC /* Common */,
-				5F2A74101D382A4600F795AC /* CommonTests */,
+				5F2A74011D38284600F795AC /* UnclutterKit */,
+				5F2A74101D382A4600F795AC /* UnclutterKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -349,7 +359,7 @@
 /* Begin PBXTargetDependency section */
 		5F2A74181D382A4600F795AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5F2A74011D38284600F795AC /* Common */;
+			target = 5F2A74011D38284600F795AC /* UnclutterKit */;
 			targetProxy = 5F2A74171D382A4600F795AC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -457,7 +467,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nl.unclutter.Common;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.unclutter.UnclutterKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -473,7 +483,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nl.unclutter.Common;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.unclutter.UnclutterKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -486,7 +496,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nl.unclutter.CommonTests;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.unclutter.UnclutterKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -499,7 +509,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nl.unclutter.CommonTests;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.unclutter.UnclutterKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -508,7 +518,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5F2A73FC1D38284600F795AC /* Build configuration list for PBXProject "Common" */ = {
+		5F2A73FC1D38284600F795AC /* Build configuration list for PBXProject "UnclutterKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F2A74081D38284600F795AC /* Debug */,
@@ -517,7 +527,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		5F2A740A1D38284600F795AC /* Build configuration list for PBXNativeTarget "Common" */ = {
+		5F2A740A1D38284600F795AC /* Build configuration list for PBXNativeTarget "UnclutterKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F2A740B1D38284600F795AC /* Debug */,
@@ -526,7 +536,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		5F2A74191D382A4600F795AC /* Build configuration list for PBXNativeTarget "CommonTests" */ = {
+		5F2A74191D382A4600F795AC /* Build configuration list for PBXNativeTarget "UnclutterKitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F2A741A1D382A4600F795AC /* Debug */,
