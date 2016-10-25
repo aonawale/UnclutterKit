@@ -12,7 +12,6 @@
 		5F2A743F1D382C6E00F795AC /* Managed object context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A74231D382C6E00F795AC /* Managed object context.swift */; };
 		5F2A74401D382C6E00F795AC /* Managed object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A74241D382C6E00F795AC /* Managed object.swift */; };
 		5F2A74411D382C6E00F795AC /* Observe managed objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A74251D382C6E00F795AC /* Observe managed objects.swift */; };
-		5F2A74421D382C6E00F795AC /* TableChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A74261D382C6E00F795AC /* TableChange.swift */; };
 		5F2A74431D382C6E00F795AC /* AnyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A74281D382C6E00F795AC /* AnyDataSource.swift */; };
 		5F2A74441D382C6E00F795AC /* Collection table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A74291D382C6E00F795AC /* Collection table.swift */; };
 		5F2A74451D382C6E00F795AC /* Data source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A742A1D382C6E00F795AC /* Data source.swift */; };
@@ -32,6 +31,8 @@
 		5F2A74531D382C6E00F795AC /* Refresh control.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A743B1D382C6E00F795AC /* Refresh control.swift */; };
 		5F2A74541D382C6E00F795AC /* Reuseable view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A743C1D382C6E00F795AC /* Reuseable view.swift */; };
 		5F2A74551D382C6E00F795AC /* Switching view controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A743D1D382C6E00F795AC /* Switching view controller.swift */; };
+		5F47D43F1DBF500800E719F7 /* TableChange+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47D43E1DBF500800E719F7 /* TableChange+CoreData.swift */; };
+		5F47D4411DBF50A300E719F7 /* TableChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47D4401DBF50A300E719F7 /* TableChange.swift */; };
 		5F8688501D7C78930069EA98 /* Safe array subscribting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F86884F1D7C78930069EA98 /* Safe array subscribting.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +55,6 @@
 		5F2A74231D382C6E00F795AC /* Managed object context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Managed object context.swift"; sourceTree = "<group>"; };
 		5F2A74241D382C6E00F795AC /* Managed object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Managed object.swift"; sourceTree = "<group>"; };
 		5F2A74251D382C6E00F795AC /* Observe managed objects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observe managed objects.swift"; sourceTree = "<group>"; };
-		5F2A74261D382C6E00F795AC /* TableChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableChange.swift; sourceTree = "<group>"; };
 		5F2A74281D382C6E00F795AC /* AnyDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyDataSource.swift; sourceTree = "<group>"; };
 		5F2A74291D382C6E00F795AC /* Collection table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection table.swift"; sourceTree = "<group>"; };
 		5F2A742A1D382C6E00F795AC /* Data source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data source.swift"; sourceTree = "<group>"; };
@@ -74,6 +74,8 @@
 		5F2A743B1D382C6E00F795AC /* Refresh control.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Refresh control.swift"; sourceTree = "<group>"; };
 		5F2A743C1D382C6E00F795AC /* Reuseable view.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reuseable view.swift"; sourceTree = "<group>"; };
 		5F2A743D1D382C6E00F795AC /* Switching view controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Switching view controller.swift"; sourceTree = "<group>"; };
+		5F47D43E1DBF500800E719F7 /* TableChange+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableChange+CoreData.swift"; sourceTree = "<group>"; };
+		5F47D4401DBF50A300E719F7 /* TableChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableChange.swift; sourceTree = "<group>"; };
 		5F7CD73B1D80778A00CE7342 /* Changeset.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Changeset.framework; path = Carthage/Build/iOS/Changeset.framework; sourceTree = "<group>"; };
 		5F86884F1D7C78930069EA98 /* Safe array subscribting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Safe array subscribting.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,7 +146,7 @@
 				5F2A74231D382C6E00F795AC /* Managed object context.swift */,
 				5F2A74241D382C6E00F795AC /* Managed object.swift */,
 				5F2A74251D382C6E00F795AC /* Observe managed objects.swift */,
-				5F2A74261D382C6E00F795AC /* TableChange.swift */,
+				5F47D43E1DBF500800E719F7 /* TableChange+CoreData.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -160,6 +162,7 @@
 				5F2A742D1D382C6E00F795AC /* Simple data source.swift */,
 				5F2A742E1D382C6E00F795AC /* Supplementary view providing.swift */,
 				5F2A742F1D382C6E00F795AC /* Table.swift */,
+				5F47D4401DBF50A300E719F7 /* TableChange.swift */,
 			);
 			path = "Data source";
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 			files = (
 				5F2A74531D382C6E00F795AC /* Refresh control.swift in Sources */,
 				5F2A74541D382C6E00F795AC /* Reuseable view.swift in Sources */,
+				5F47D4411DBF50A300E719F7 /* TableChange.swift in Sources */,
 				5F2A74441D382C6E00F795AC /* Collection table.swift in Sources */,
 				5F2A743F1D382C6E00F795AC /* Managed object context.swift in Sources */,
 				5F2A74411D382C6E00F795AC /* Observe managed objects.swift in Sources */,
@@ -330,10 +334,10 @@
 				5F2A74471D382C6E00F795AC /* Section.swift in Sources */,
 				5F2A74551D382C6E00F795AC /* Switching view controller.swift in Sources */,
 				5F2A74431D382C6E00F795AC /* AnyDataSource.swift in Sources */,
+				5F47D43F1DBF500800E719F7 /* TableChange+CoreData.swift in Sources */,
 				5F2A74481D382C6E00F795AC /* Simple data source.swift in Sources */,
 				5F2A74521D382C6E00F795AC /* Configuring.swift in Sources */,
 				5F2A744B1D382C6E00F795AC /* Notifications.swift in Sources */,
-				5F2A74421D382C6E00F795AC /* TableChange.swift in Sources */,
 				5F2A744A1D382C6E00F795AC /* Table.swift in Sources */,
 				5F2A744F1D382C6E00F795AC /* Auto layout.swift in Sources */,
 				5F2A74401D382C6E00F795AC /* Managed object.swift in Sources */,
