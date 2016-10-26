@@ -1,7 +1,5 @@
 import UIKit
 
-extension UIBarButtonItem: ClosureSupport {}
-
 extension UIBarButtonItem {
 
 	public convenience init(title: String, style: UIBarButtonItemStyle = .plain) {

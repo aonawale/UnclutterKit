@@ -2,8 +2,8 @@ import UIKit
 
 public protocol ClosureSupport {}
 
+extension UIBarButtonItem: ClosureSupport {}
 extension ClosureSupport where Self: UIBarButtonItem {
-
 	public func setAction(callback: @escaping (Self) -> Void) {
 		let _target = Target(callback: callback)
 		objc_setAssociatedObject(self, &associationKey, _target, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -12,10 +12,11 @@ extension ClosureSupport where Self: UIBarButtonItem {
 	}
 }
 
+extension UIControl: ClosureSupport {}
 extension ClosureSupport where Self: UIControl {
 
 	// TODO: support adding multiple actions
-	public func setAction(for controlEvents: UIControlEvents, callback: @escaping (Self) -> Void) {
+	public func setAction(for controlEvents: UIControlEvents = .touchUpInside, callback: @escaping (Self) -> Void) {
 		let target = Target(callback: callback)
 		objc_setAssociatedObject(self, &associationKey, target, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 		addTarget(target, action: #selector(Target.action), for: controlEvents)
@@ -23,7 +24,6 @@ extension ClosureSupport where Self: UIControl {
 }
 
 private final class Target<T: NSObject> {
-
 	typealias Callback = (T) -> Void
 	let callback: Callback
 

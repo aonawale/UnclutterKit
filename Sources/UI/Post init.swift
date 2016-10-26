@@ -1,61 +1,62 @@
 import UIKit
 
-public protocol Configuring {
-	func configure()
-}
-
-open class CollectionViewCell: UICollectionViewCell, Configuring {
+open class CollectionViewCell: UICollectionViewCell {
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
-		configure()
+		postInit()
 	}
 
 	required public init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
-		configure()
+		postInit()
 	}
 
-	open func configure() {}
+	open func postInit() {}
 }
 
-open class CollectionReusableView: UICollectionReusableView, Configuring {
+open class CollectionReusableView: UICollectionReusableView {
 	public override init(frame: CGRect) {
 		super.init(frame: frame)
-		configure()
+		postInit()
 	}
 	
 	required public init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
-		configure()
+		postInit()
 	}
 
-	open func configure() {}
+	open func postInit() {}
 }
 
-open class TableViewCell: UITableViewCell, Configuring {
+open class TableViewCell: UITableViewCell {
     public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configure()
+        postInit()
     }
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        configure()
+        postInit()
     }
     
-    open func configure() {}
+    open func postInit() {}
 }
 
-open class ViewController: UIViewController, Configuring {
+open class ViewController: UIViewController {
+    public init() {
+        super.init(nibName: nil, bundle: nil)
+        postInit()
+    }
+
 	public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nil, bundle: nil)
-		configure()
+		postInit()
 	}
 
 	required public init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
-		configure()
+		postInit()
 	}
 
-	open func configure() {}
+	open func postInit() {}
 }

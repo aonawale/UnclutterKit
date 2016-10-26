@@ -1,7 +1,5 @@
 import UIKit
 
-extension UIRefreshControl: ClosureSupport {}
-
 extension UIScrollView {
 	
 	public func onRefresh(_ action: @escaping (UIRefreshControl) -> Void) {
