@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5F2A74101D382A4600F795AC"
+               BuildableName = ".xctest"
+               BlueprintName = "UnclutterKitTests"
+               ReferencedContainer = "container:UnclutterKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5F2A74011D38284600F795AC"
+            BuildableName = "UnclutterKit.framework"
+            BlueprintName = "UnclutterKit"
+            ReferencedContainer = "container:UnclutterKit.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
