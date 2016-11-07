@@ -1,2 +1,2 @@
-#include "UnclutterKit-Common.xcconfig"
 #include "xcconfigs/Base/Configurations/Debug.xcconfig"
+#include "UnclutterKit-Common.xcconfig"
