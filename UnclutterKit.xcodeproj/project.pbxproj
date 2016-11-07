@@ -76,7 +76,6 @@
 		5F2A743D1D382C6E00F795AC /* Switching view controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Switching view controller.swift"; sourceTree = "<group>"; };
 		5F47D43E1DBF500800E719F7 /* TableChange+CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableChange+CoreData.swift"; sourceTree = "<group>"; };
 		5F47D4401DBF50A300E719F7 /* TableChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableChange.swift; sourceTree = "<group>"; };
-		5F65E29C1DCF5FC000250ECA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5F65E29E1DCF5FC000250ECA /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		5F65E2A01DCF5FC000250ECA /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		5F65E2A11DCF5FC000250ECA /* Profile.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Profile.xcconfig; sourceTree = "<group>"; };
@@ -94,7 +93,6 @@
 		5F65E2B01DCF5FC000250ECA /* Mac-DynamicLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-DynamicLibrary.xcconfig"; sourceTree = "<group>"; };
 		5F65E2B11DCF5FC000250ECA /* Mac-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-Framework.xcconfig"; sourceTree = "<group>"; };
 		5F65E2B21DCF5FC000250ECA /* Mac-StaticLibrary.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Mac-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
-		5F65E2B31DCF5FC000250ECA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5F65E2B51DCF5FC000250ECA /* tvOS-Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS-Application.xcconfig"; sourceTree = "<group>"; };
 		5F65E2B61DCF5FC000250ECA /* tvOS-Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS-Base.xcconfig"; sourceTree = "<group>"; };
 		5F65E2B71DCF5FC000250ECA /* tvOS-Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS-Framework.xcconfig"; sourceTree = "<group>"; };
@@ -244,11 +242,9 @@
 		5F65E29B1DCF5FC000250ECA /* xcconfigs */ = {
 			isa = PBXGroup;
 			children = (
-				5F65E29C1DCF5FC000250ECA /* .gitignore */,
 				5F65E29D1DCF5FC000250ECA /* Base */,
 				5F65E2A81DCF5FC000250ECA /* iOS */,
 				5F65E2AD1DCF5FC000250ECA /* Mac OS X */,
-				5F65E2B31DCF5FC000250ECA /* README.md */,
 				5F65E2B41DCF5FC000250ECA /* tvOS */,
 				5F65E2B91DCF5FC000250ECA /* watchOS */,
 			);
@@ -533,6 +529,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5F65E2A31DCF5FC000250ECA /* Test.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 			};
 			name = Debug;
 		};
@@ -540,6 +537,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5F65E2A31DCF5FC000250ECA /* Test.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 			};
 			name = Release;
 		};
