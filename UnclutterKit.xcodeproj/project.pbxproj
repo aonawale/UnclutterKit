@@ -46,7 +46,7 @@
 
 /* Begin PBXFileReference section */
 		5F20B8721DCB3D3500E302DB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		5F2A74021D38284600F795AC /* UnclutterKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UnclutterKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F2A74021D38284600F795AC /* .framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = .framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2A74061D38284600F795AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F2A74111D382A4600F795AC /* .xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = .xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2A74151D382A4600F795AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 		5F2A74031D38284600F795AC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F2A74021D38284600F795AC /* UnclutterKit.framework */,
+				5F2A74021D38284600F795AC /* .framework */,
 				5F2A74111D382A4600F795AC /* .xctest */,
 			);
 			name = Products;
@@ -354,6 +354,7 @@
 				5F2A73FE1D38284600F795AC /* Frameworks */,
 				5F2A73FF1D38284600F795AC /* Headers */,
 				5F2A74001D38284600F795AC /* Resources */,
+				5F3626EF1E2AC6EB004ECD28 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -361,7 +362,7 @@
 			);
 			name = UnclutterKit;
 			productName = UnclutterKit;
-			productReference = 5F2A74021D38284600F795AC /* UnclutterKit.framework */;
+			productReference = 5F2A74021D38284600F795AC /* .framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		5F2A74101D382A4600F795AC /* UnclutterKitTests */ = {
@@ -441,6 +442,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5F3626EF1E2AC6EB004ECD28 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5F2A73FD1D38284600F795AC /* Sources */ = {

@@ -44,6 +44,7 @@ public func == (left: TableChange, right: TableChange) -> Bool {
 
 extension TableChange: Comparable {}
 
+// swiftlint:disable cyclomatic_complexity function_body_length
 public func < (left: TableChange, right: TableChange) -> Bool {
 	switch (left, right) {
 

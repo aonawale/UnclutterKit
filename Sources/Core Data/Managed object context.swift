@@ -34,7 +34,7 @@ extension NSManagedObjectContext: ManagedObjectContextProtocol {
 		return object
 	}
 
-	public func performChanges(_ block: @escaping (NSManagedObjectContext) -> ()) {
+	public func performChanges(_ block: @escaping (NSManagedObjectContext) -> Void) {
 		perform {
 			block(self)
 			_ = self.saveOrRollback()

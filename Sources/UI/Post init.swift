@@ -19,7 +19,7 @@ open class CollectionReusableView: UICollectionReusableView {
 		super.init(frame: frame)
 		postInit()
 	}
-	
+
 	required public init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		postInit()
@@ -38,7 +38,7 @@ open class TableViewCell: UITableViewCell {
         super.init(coder: aDecoder)
         postInit()
     }
-    
+
     open func postInit() {}
 }
 

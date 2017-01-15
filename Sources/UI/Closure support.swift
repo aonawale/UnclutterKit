@@ -15,8 +15,8 @@ extension ClosureSupport where Self: UIBarButtonItem {
 extension UIControl: ClosureSupport {}
 extension ClosureSupport where Self: UIControl {
 
-	// TODO: support adding multiple actions
-	public func setAction(for controlEvents: UIControlEvents = .touchUpInside, callback: @escaping (Self) -> Void) {
+	public func setAction(for controlEvents: UIControlEvents = .touchUpInside,
+	                      callback: @escaping (Self) -> Void) {
 		let target = Target(callback: callback)
 		objc_setAssociatedObject(self, &associationKey, target, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 		addTarget(target, action: #selector(Target.action), for: controlEvents)
@@ -36,7 +36,7 @@ private final class Target<T: NSObject> {
 	}
 
 	@objc func action(object: NSObject) {
-		bridgingAction(control: object as! T)
+		bridgingAction(control: object as! T) // swiftlint:disable:this force_cast
 	}
 }
 

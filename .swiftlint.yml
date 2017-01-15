@@ -1,0 +1,15 @@
+included:
+  - Sources
+  - Tests
+excluded:
+  - Sources/Misc/Then.swift
+opt_in_rules:
+  - file_header
+line_length: 100
+file_header:
+  required_pattern: |
+variable_name:
+  excluded:
+    - at
+type_name:
+  min_length: 1

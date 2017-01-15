@@ -20,10 +20,10 @@ public struct SupplementaryViewProvider<F: UICollectionReusableView, H: UICollec
 	               withTitle title: String?) {
 		switch kind {
 		case UICollectionElementKindSectionFooter:
-			var footer = supplementaryView as! F
+			var footer = supplementaryView as! F // swiftlint:disable:this force_cast
 			footer.viewModel = title
 		case UICollectionElementKindSectionHeader:
-			var header = supplementaryView as! H
+			var header = supplementaryView as! H // swiftlint:disable:this force_cast
 			header.viewModel = title
 		default:
 			fatalError("Unsupported supplementary view kind: \(kind)")

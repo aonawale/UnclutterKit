@@ -16,16 +16,19 @@ public class FetchedResultsDataSource<Model: NSFetchRequestResult, Item> {
 		fetchedResultsControllerDelegate = FetchedResultsControllerDelegate(
 			tableUpdater: tableUpdater)
 		fetchedResultsController.delegate = fetchedResultsControllerDelegate
-		try! fetchedResultsController.performFetch()
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("Fetch request lacks a sort descriptor that uses sectionNameKeyPath")
+        }
 
-		self.tableUpdater = tableUpdater
 		self.transform = transform
 	}
 
 	fileprivate let fetchedResultsController: NSFetchedResultsController<Model>
 	fileprivate let transform: (Model) -> Item
+    // swiftlint:disable:next weak_delegate
 	private let fetchedResultsControllerDelegate: FetchedResultsControllerDelegate<Model>
-	private let tableUpdater: TableUpdatable
 }
 
 extension FetchedResultsDataSource: DataSourceProtocol {

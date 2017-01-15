@@ -25,7 +25,7 @@ public extension ManagedObjectProtocol {
 	static func materializedObject(in managedObjectContext: ManagedObjectContextProtocol,
 	                               matching predicate: NSPredicate) -> Self? {
 		for object in managedObjectContext.registeredObjects where !object.isFault {
-			guard let result = object as? Self , predicate.evaluate(with: result) else {
+			guard let result = object as? Self, predicate.evaluate(with: result) else {
 				continue
 			}
 			return result
@@ -82,7 +82,7 @@ public extension NSManagedObject {
 
 	func save(inContext context: NSManagedObjectContext? = nil) {
 		(context ?? managedObjectContext)?.performChanges {
-			try! $0.save()
+			try! $0.save() // swiftlint:disable:this force_try
 		}
 	}
 }
